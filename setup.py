@@ -2,10 +2,10 @@
 from setuptools import setup
 
 setup(
-    name='flaskr',
-    packages=['flaskr'],
+    name='kube_playground',
+    packages=['kube_playground'],
     include_package_date=True,
-    install_reuires=[
+    install_requires=[
         'flask',
     ]
 )

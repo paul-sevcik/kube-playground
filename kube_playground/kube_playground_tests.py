@@ -2,21 +2,21 @@ import os
 import tempfile
 import unittest
 
-import flaskr
+import kube_playground
 
 
 class FlaskrTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.db_fd, flaskr.app.config['DATABASE'] = tempfile.mkstemp()
-        flaskr.app.config['TESTING'] = True
-        self.app = flaskr.app.test_client()
-        with flaskr.app.app_context():
-            flaskr.init_db()
+        self.db_fd, kube_playground.app.config['DATABASE'] = tempfile.mkstemp()
+        kube_playground.app.config['TESTING'] = True
+        self.app = kube_playground.app.test_client()
+        with kube_playground.app.app_context():
+            kube_playground.init_db()
 
     def tearDown(self):
         os.close(self.db_fd)
-        os.unlink(flaskr.app.config['DATABASE'])
+        os.unlink(kube_playground.app.config['DATABASE'])
 
     def test_empty_db(self):
         rv = self.app.get('/')
