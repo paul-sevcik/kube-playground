@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+        stage('static code analysis') {
             steps {
-                sh 'python --version'
+                sh 'pycodestyle .'
             }
         }
     }
